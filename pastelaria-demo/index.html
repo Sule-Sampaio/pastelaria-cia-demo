@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Demonstração de cardápio digital da Pastelaria & Cia." />
+  <title>Pastelaria & Cia | Cardápio Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <img src="assets/logo.jpg" alt="Logo Pastelaria & Cia">
+        <span>Pastelaria & Cia</span>
+      </a>
+      <nav>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+      <button class="cart-button" id="openCart" type="button">
+        Sacola <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="demo-badge">DEMONSTRAÇÃO</span>
+          <p class="eyebrow">Pastéis, acarajés, hambúrgueres e pizzas</p>
+          <h1>Sabor de verdade, pedido sem complicação.</h1>
+          <p class="hero-text">
+            Escolha seus itens, informe entrega ou retirada e envie o pedido pronto pelo WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#cardapio">Ver cardápio</a>
+            <a class="btn secondary" href="https://www.instagram.com/pastelariaeciaofc/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <div class="quick-info">
+            <span>📍 Rua Durval Campos, São Jorge, nº 528</span>
+            <span>📲 Delivery e retirada</span>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="assets/logo-whatsapp.png" alt="Pastelaria & Cia">
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="cardapio">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Escolha o que vai pedir</p>
+            <h2>Cardápio</h2>
+          </div>
+          <input id="searchInput" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
+        </div>
+
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="location-section" id="localizacao">
+      <div class="container location-grid">
+        <div>
+          <p class="eyebrow">Onde estamos</p>
+          <h2>Rua Durval Campos, São Jorge, nº 528</h2>
+          <p>Jaguaquara - BA</p>
+          <div class="location-actions">
+            <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Rua%20Durval%20Campos%20528%20Jaguaquara%20BA" target="_blank" rel="noopener">Como chegar</a>
+            <a class="btn secondary" href="https://wa.me/5573988552247" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          </div>
+        </div>
+        <img src="assets/localizacao.png" alt="Localização da Pastelaria & Cia">
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Referência do cardápio</p>
+            <h2>Cardápio original</h2>
+          </div>
+        </div>
+        <div class="menu-gallery">
+          <img src="assets/menu-hamburguer.jpg" alt="Cardápio de hambúrgueres">
+          <img src="assets/menu-acaraje.jpg" alt="Cardápio de acarajé">
+          <img src="assets/menu-premium.jpg" alt="Cardápio de pastéis premium">
+          <img src="assets/menu-tradicionais.jpg" alt="Cardápio de pastéis tradicionais">
+          <img src="assets/menu-doces.jpg" alt="Cardápio de pastéis doces">
+          <img src="assets/menu-pizzas.jpg" alt="Cardápio de pizzas">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="sobre">
+      <div class="container about-card">
+        <img src="assets/logo.jpg" alt="Logo da Pastelaria & Cia">
+        <div>
+          <p class="eyebrow">Pastelaria & Cia</p>
+          <h2>Seu pedido em poucos cliques</h2>
+          <p>Esta página é uma demonstração de cardápio digital com carrinho, checkout e envio do pedido pelo WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Pastelaria & Cia</strong>
+        <p>Rua Durval Campos, São Jorge, nº 528 — Jaguaquara/BA</p>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/pastelariaeciaofc/" target="_blank" rel="noopener">@pastelariaeciaofc</a>
+        <a href="https://wa.me/5573988552247" target="_blank" rel="noopener">(73) 98855-2247</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Sacola">
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">Seu pedido</p>
+        <h2>Sacola</h2>
+      </div>
+      <button id="closeCart" class="icon-button" type="button" aria-label="Fechar sacola">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <form class="checkout" id="checkoutForm">
+      <div class="checkout-section">
+        <h3>1. Tipo de pedido</h3>
+        <div class="choice-grid">
+          <label class="choice-card">
+            <input type="radio" name="delivery" value="Retirada" checked>
+            <span>🏪 Retirada</span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="delivery" value="Entrega">
+            <span>🛵 Entrega</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h3>2. Seus dados</h3>
+        <div class="field-grid">
+          <label class="field full-field">
+            <span>Nome *</span>
+            <input id="customerName" type="text" placeholder="Seu nome">
+          </label>
+        </div>
+      </div>
+
+      <div class="checkout-section hidden" id="deliveryFields">
+        <h3>3. Endereço de entrega</h3>
+        <div class="field-grid">
+          <label class="field full-field">
+            <span>Rua / Avenida *</span>
+            <input id="street" type="text" placeholder="Ex.: Rua das Flores">
+          </label>
+          <label class="field">
+            <span>Número *</span>
+            <input id="number" type="text" placeholder="123">
+          </label>
+          <label class="field">
+            <span>Bairro *</span>
+            <input id="district" type="text" placeholder="Centro">
+          </label>
+          <label class="field full-field">
+            <span>Complemento</span>
+            <input id="complement" type="text" placeholder="Casa, apto, bloco...">
+          </label>
+          <label class="field full-field">
+            <span>Ponto de referência</span>
+            <input id="reference" type="text" placeholder="Próximo a...">
+          </label>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h3>4. Forma de pagamento</h3>
+        <div class="payment-grid">
+          <label class="choice-card">
+            <input type="radio" name="payment" value="Pix">
+            <span>💠 Pix</span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="payment" value="Cartão de crédito">
+            <span>💳 Crédito</span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="payment" value="Cartão de débito">
+            <span>💳 Débito</span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="payment" value="Dinheiro">
+            <span>💵 Dinheiro</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="checkout-section hidden" id="changeFields">
+        <h3>Troco</h3>
+        <label class="field">
+          <span>Troco para quanto?</span>
+          <input id="changeFor" type="number" min="0" step="0.01" placeholder="Ex.: 100">
+        </label>
+      </div>
+
+      <div class="checkout-section">
+        <h3>5. Observações</h3>
+        <label class="field full-field">
+          <span>Observações do pedido</span>
+          <textarea id="notes" rows="3" placeholder="Ex.: sem cebola, retirar pimenta..."></textarea>
+        </label>
+      </div>
+
+      <div class="cart-footer">
+        <div class="total-line">
+          <span>Total</span>
+          <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+        <button class="btn primary full" id="finishOrder" type="submit">Enviar pedido pelo WhatsApp</button>
+        <small>Entrega: R$ 8,00. Prazo e disponibilidade devem ser confirmados pela loja.</small>
+      </div>
+    </form>
+  </aside>
+
+  <button class="floating-cart" id="floatingCart" type="button">🛍️ <span id="floatingText">Ver sacola</span></button>
+
+
+  <div class="customizer-overlay" id="customizerOverlay"></div>
+  <section class="customizer-modal" id="customizerModal" aria-label="Personalizar item">
+    <div class="customizer-header">
+      <div>
+        <p class="eyebrow">Personalize seu item</p>
+        <h2 id="customizerTitle">Produto</h2>
+      </div>
+      <button class="icon-button" id="closeCustomizer" type="button" aria-label="Fechar">✕</button>
+    </div>
+
+    <div class="customizer-body">
+      <div id="customizerProductInfo" class="customizer-product-info"></div>
+
+      <div class="customizer-section" id="freeAddonsSection">
+        <h3>Adicionais grátis</h3>
+        <p class="customizer-help">Escolha os adicionais disponíveis para este item.</p>
+        <div id="freeAddons" class="addon-list"></div>
+      </div>
+
+      <div class="customizer-section" id="paidAddonsSection">
+        <h3>Adicionais pagos</h3>
+        <div id="paidAddons" class="addon-list"></div>
+      </div>
+
+      <div class="customizer-section">
+        <h3>Observação do item</h3>
+        <textarea id="itemNote" rows="3" placeholder="Ex.: sem cebola, pouco molho..."></textarea>
+      </div>
+    </div>
+
+    <div class="customizer-footer">
+      <div>
+        <small>Total deste item</small>
+        <strong id="customizerTotal">R$ 0,00</strong>
+      </div>
+      <button id="confirmCustomizer" class="btn primary" type="button">Adicionar à sacola</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

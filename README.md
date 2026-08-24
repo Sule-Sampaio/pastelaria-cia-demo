@@ -8,7 +8,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-**[🌐 VER DEMONSTRAÇÃO](COLOQUE-AQUI-O-LINK-DO-GITHUB-PAGES)**
+**[🌐 VER DEMONSTRAÇÃO](https://sule-sampaio.github.io/pastelaria-cia-demo/)**
 
 </div>
 
@@ -240,6 +240,6 @@ Projeto desenvolvido para demonstrar conhecimentos em desenvolvimento Front-end 
 
 Deixe uma estrela no repositório. ⭐
 
-**[🌐 Acessar demonstração](COLOQUE-AQUI-O-LINK-DO-GITHUB-PAGES)**
+**[🌐 Acessar demonstração](https://sule-sampaio.github.io/pastelaria-cia-demo/)**
 
 </div>

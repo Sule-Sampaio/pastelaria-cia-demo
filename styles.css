@@ -145,7 +145,8 @@ footer { background:var(--black); color:#fff; padding:34px 0; }
   .about-card img { width:130px; margin-inline:auto; }
   .footer-grid { flex-direction:column; }
   .footer-grid > div:last-child { align-items:flex-start; }
-  .floating-cart { left:14px; right:14px; width:calc(100% - 28px); }
+  .floating-cart { left:14px; right:14px; width:calc(100% - 28px); display:none; }
+  .floating-cart.show { display:block; }
   .field-grid,.choice-grid,.payment-grid { grid-template-columns:1fr; }
 }
 

@@ -136,6 +136,7 @@ const el = {
   cartTotal:document.querySelector("#cartTotal"),
   cartCount:document.querySelector("#cartCount"),
   floatingText:document.querySelector("#floatingText"),
+  floatingCart:document.querySelector("#floatingCart"),
   deliveryFields:document.querySelector("#deliveryFields"),
   changeFields:document.querySelector("#changeFields"),
   form:document.querySelector("#checkoutForm")
@@ -251,6 +252,7 @@ function renderCart(){
   const total=subtotal+fee;
   el.cartCount.textContent=totalQty;
   el.floatingText.textContent=totalQty?`Sacola (${totalQty}) • ${money(total)}`:"Ver sacola";
+  el.floatingCart.classList.toggle("show", totalQty > 0);
   el.cartTotal.textContent=money(total);
 
   if(!state.cart.length){

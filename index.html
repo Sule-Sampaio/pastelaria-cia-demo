@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
+  <div class="announcement">Feito para o seu apetite. <span>Entrega por R$ 8 · Retirada sem taxa</span></div>
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="#inicio">
@@ -33,13 +35,13 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="demo-badge">DEMONSTRAÇÃO</span>
-          <p class="eyebrow">Pastéis, acarajés, hambúrgueres e pizzas</p>
-          <h1>Sabor de verdade, pedido sem complicação.</h1>
+          <p class="eyebrow">Jaguaquara, Bahia · Pastelaria & Cia</p>
+          <h1>Seu próximo<br>pedido favorito<span class="accent"> começa aqui.</span></h1>
           <p class="hero-text">
-            Escolha seus itens, informe entrega ou retirada e envie o pedido pronto pelo WhatsApp.
+            Do pastel ao acarajé, encontre o sabor que combina com a sua fome. Monte do seu jeito e peça direto pelo WhatsApp.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#cardapio">Ver cardápio</a>
+            <a class="btn primary" href="#cardapio">Escolher meu pedido <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
             <a class="btn secondary" href="https://www.instagram.com/pastelariaeciaofc/" target="_blank" rel="noopener">Instagram</a>
           </div>
           <div class="quick-info">
@@ -49,22 +51,30 @@
         </div>
 
         <div class="hero-image">
-          <img src="assets/logo-whatsapp.png" alt="Pastelaria & Cia">
+          <img src="assets/acaraje-prato.jpg" alt="Acarajé servido no prato com acompanhamentos" fetchpriority="high">
+          <div class="hero-caption"><span>UM SABOR DA NOSSA TERRA</span><strong>Acarajé, do seu jeito.</strong><a href="#cardapio">Explore o cardápio <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
         </div>
       </div>
     </section>
 
+    <section class="service-strip" aria-label="Como pedir"><div class="container service-grid">
+      <div><span class="step-number">01</span><div><strong>Escolha seu favorito</strong><p>Um cardápio cheio de possibilidades.</p></div></div>
+      <div><span class="step-number">02</span><div><strong>Deixe do seu jeito</strong><p>Tamanho, adicionais e aquele toque seu.</p></div></div>
+      <div><span class="step-number">03</span><div><strong>Peça pelo WhatsApp</strong><p>A loja confirma os detalhes com você.</p></div></div>
+    </div></section>
     <section class="menu-section" id="cardapio">
       <div class="container">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Escolha o que vai pedir</p>
-            <h2>Cardápio</h2>
+            <h2>Qual é a sua fome hoje?</h2>
+            <p class="section-description">Escolha, personalize e deixe o resto com a gente.</p>
           </div>
           <input id="searchInput" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
         </div>
 
-        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="category-tabs" id="categoryTabs" aria-label="Categorias do cardápio"></div>
+        <div class="menu-meta"><span id="resultCount" role="status"></span><span>Personalize com adicionais · Pedido pelo WhatsApp</span></div>
         <div class="products-grid" id="productsGrid"></div>
       </div>
     </section>
@@ -85,6 +95,7 @@
     </section>
 
     <section class="gallery-section">
+      <details class="container original-menu"><summary>Prefere consultar o cardápio original? <span>Ver imagens +</span></summary>
       <div class="container">
         <div class="section-heading">
           <div>
@@ -93,14 +104,15 @@
           </div>
         </div>
         <div class="menu-gallery">
-          <img src="assets/menu-hamburguer.jpg" alt="Cardápio de hambúrgueres">
-          <img src="assets/menu-acaraje.jpg" alt="Cardápio de acarajé">
-          <img src="assets/menu-premium.jpg" alt="Cardápio de pastéis premium">
-          <img src="assets/menu-tradicionais.jpg" alt="Cardápio de pastéis tradicionais">
-          <img src="assets/menu-doces.jpg" alt="Cardápio de pastéis doces">
-          <img src="assets/menu-pizzas.jpg" alt="Cardápio de pizzas">
+          <img loading="lazy" src="assets/menu-hamburguer.jpg" alt="Cardápio de hambúrgueres">
+          <img loading="lazy" src="assets/menu-acaraje.jpg" alt="Cardápio de acarajé">
+          <img loading="lazy" src="assets/menu-premium.jpg" alt="Cardápio de pastéis premium">
+          <img loading="lazy" src="assets/menu-tradicionais.jpg" alt="Cardápio de pastéis tradicionais">
+          <img loading="lazy" src="assets/menu-doces.jpg" alt="Cardápio de pastéis doces">
+          <img loading="lazy" src="assets/menu-pizzas.jpg" alt="Cardápio de pizzas">
         </div>
       </div>
+      </details>
     </section>
 
     <section class="about-section" id="sobre">
@@ -108,8 +120,8 @@
         <img src="assets/logo.jpg" alt="Logo da Pastelaria & Cia">
         <div>
           <p class="eyebrow">Pastelaria & Cia</p>
-          <h2>Seu pedido em poucos cliques</h2>
-          <p>Esta página é uma demonstração de cardápio digital com carrinho, checkout e envio do pedido pelo WhatsApp.</p>
+          <h2>Sabor local. Facilidade de verdade.</h2>
+          <p>Pastéis, acarajé, hambúrgueres e pizzas em um só lugar. Escolha seus favoritos e combine entrega ou retirada diretamente com a loja. <small class="demo-note">Projeto demonstrativo. Este não é o site oficial do estabelecimento.</small></p>
         </div>
       </div>
     </section>
@@ -161,7 +173,7 @@
         <div class="field-grid">
           <label class="field full-field">
             <span>Nome *</span>
-            <input id="customerName" type="text" placeholder="Seu nome">
+            <input id="customerName" autocomplete="name" type="text" placeholder="Seu nome">
           </label>
         </div>
       </div>
@@ -171,7 +183,7 @@
         <div class="field-grid">
           <label class="field full-field">
             <span>Rua / Avenida *</span>
-            <input id="street" type="text" placeholder="Ex.: Rua das Flores">
+            <input id="street" autocomplete="address-line1" type="text" placeholder="Ex.: Rua das Flores">
           </label>
           <label class="field">
             <span>Número *</span>
@@ -231,9 +243,11 @@
       </div>
 
       <div class="cart-footer">
+        <div class="order-summary"><div><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div><div><span>Entrega</span><strong id="cartDelivery">Sem taxa</strong></div></div>
+        <p id="checkoutError" role="alert" hidden></p>
         <div class="total-line">
           <span>Total</span>
-          <strong id="cartTotal">R$ 0,00</strong>
+          <strong id="cartTotal" aria-live="polite">R$ 0,00</strong>
         </div>
         <button class="btn primary full" id="finishOrder" type="submit">Enviar pedido pelo WhatsApp</button>
         <small>Entrega: R$ 8,00. Prazo e disponibilidade devem ser confirmados pela loja.</small>

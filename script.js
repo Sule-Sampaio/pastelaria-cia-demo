@@ -142,7 +142,6 @@ const el = {
   form:document.querySelector("#checkoutForm")
 };
 
-function escapeHTML(value){ return String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function money(value){ return value.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); }
 function categories(){ return ["Todos",...new Set(products.map(p=>p.category))]; }
 
@@ -151,7 +150,6 @@ function renderTabs(){
     <button class="${state.category===cat?"active":""}" data-category="${cat}">${cat}</button>
   `).join("");
   el.tabs.querySelectorAll("button").forEach(btn=>{
-    btn.setAttribute("aria-pressed", String(state.category === btn.dataset.category));
     btn.addEventListener("click",()=>{
       state.category=btn.dataset.category;
       renderTabs();
@@ -168,7 +166,6 @@ function renderProducts(){
     return categoryOk&&searchOk;
   });
 
-  document.querySelector("#resultCount").textContent=`${filtered.length} ${filtered.length===1?"opção disponível":"opções disponíveis"}`;
   if(!filtered.length){
     el.products.innerHTML="<p>Nenhum produto encontrado.</p>";
     return;
@@ -257,8 +254,6 @@ function renderCart(){
   el.floatingText.textContent=totalQty?`Sacola (${totalQty}) • ${money(total)}`:"Ver sacola";
   el.floatingCart.classList.toggle("show", totalQty > 0);
   el.cartTotal.textContent=money(total);
-  document.querySelector("#cartSubtotal").textContent=money(subtotal);
-  document.querySelector("#cartDelivery").textContent=fee ? money(fee) : "Sem taxa";
 
   if(!state.cart.length){
     el.cartItems.innerHTML=`
@@ -279,16 +274,16 @@ function renderCart(){
             ${item.category}${item.size!=="Único"?` • Tam. ${item.size}`:""}
             ${item.freeAddons?.length ? `<br>Grátis: ${item.freeAddons.join(", ")}` : ""}
             ${item.paidAddons?.length ? `<br>Extras: ${item.paidAddons.map(a=>`${a.name} (+${money(a.price)})`).join(", ")}` : ""}
-            ${item.note ? `<br>Obs.: ${escapeHTML(item.note)}` : ""}
+            ${item.note ? `<br>Obs.: ${item.note}` : ""}
           </div>
         </div>
         <strong>${money(item.price*item.qty)}</strong>
       </div>
       <div class="qty-row">
-        <button data-action="minus" data-key="${escapeHTML(item.key)}">−</button>
+        <button data-action="minus" data-key="${item.key}">−</button>
         <span>${item.qty}</span>
-        <button data-action="plus" data-key="${escapeHTML(item.key)}">+</button>
-        <button class="remove" data-action="remove" data-key="${escapeHTML(item.key)}">Remover</button>
+        <button data-action="plus" data-key="${item.key}">+</button>
+        <button class="remove" data-action="remove" data-key="${item.key}">Remover</button>
       </div>
     </div>
   `).join("");
@@ -346,9 +341,7 @@ function finishOrder(event){
   event.preventDefault();
 
   const error=validateCheckout();
-  const errorBox=document.querySelector("#checkoutError");
-  errorBox.textContent=error; errorBox.hidden=!error;
-  if(error){ errorBox.scrollIntoView({block:"center"}); return; }
+  if(error){ alert(error); return; }
 
   const subtotal=state.cart.reduce((s,i)=>s+i.price*i.qty,0);
   const delivery=getSelected("delivery");
@@ -498,26 +491,3 @@ renderTabs();
 renderProducts();
 renderCart();
 updateConditionalFields();
-
-// Keep inactive panels out of keyboard navigation and support modal keyboard use.
-const panels=[el.cartDrawer,document.querySelector('#customizerModal')];
-let returnFocus=null;
-function syncPanels(){
-  const active=panels.filter(p=>p.classList.contains('open')).at(-1);
-  panels.forEach(p=>{p.inert=p!==active; p.setAttribute('aria-hidden',String(p!==active)); p.setAttribute('role','dialog'); p.setAttribute('aria-modal','true');});
-  document.body.classList.toggle('panel-open',!!active);
-  if(active && !active.contains(document.activeElement)){ returnFocus=document.activeElement; active.querySelector('button')?.focus(); }
-  else if(!active && returnFocus){ returnFocus.focus(); returnFocus=null; }
-}
-panels.forEach(p=>new MutationObserver(syncPanels).observe(p,{attributes:true,attributeFilter:['class']}));
-syncPanels();
-document.addEventListener('keydown',e=>{
- const active=panels.filter(p=>p.classList.contains('open')).at(-1); if(!active) return;
- if(e.key==='Escape'){ e.preventDefault(); active===el.cartDrawer ? closeCart() : closeCustomizer(); }
- if(e.key==='Tab'){
-  const items=[...active.querySelectorAll('button,input,select,textarea,a[href]')].filter(n=>!n.disabled && n.getClientRects().length);
-  const first=items[0],last=items.at(-1);
-  if(e.shiftKey && document.activeElement===first){e.preventDefault();last?.focus();}
-  else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first?.focus();}
- }
-});
